@@ -50,7 +50,7 @@
   },
   "scripts": {
     "dev": "NODE_OPTIONS='--max_old_space_size=8192 --openssl-legacy-provider' next",
-    "build": "next build",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider' next build",
     "start": "next start",
     "testdiff": "node tests/diffSummaries.js",
     "postinstall": "yarn generate",
@@ -62,7 +62,7 @@
     "studio": "prisma studio --schema ./prisma/schema.prisma"
   },
   "engines": {
-    "node": "*"
+    "node": "18.x"
   },
   "devDependencies": {
     "prisma": "^6.18.0"
