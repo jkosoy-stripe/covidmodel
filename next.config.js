@@ -9,15 +9,10 @@ module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   target: 'serverless',
   webpack: (config, {isServer}) => {
-    // Exclude public/json from being bundled
     if (isServer) {
+      // Externalize Prisma to avoid webpack parsing issues
       config.externals = config.externals || [];
-      config.externals.push({
-        'public/json': 'commonjs public/json',
-      });
-      // Externalize Prisma Client to avoid webpack processing its subpath imports
-      config.externals.push('@prisma/client');
-      config.externals.push('.prisma/client');
+      config.externals.push('@prisma/client', '.prisma/client');
     }
     // Uncomment to profile React in production:
     // Object.assign(config.resolve.alias, {
