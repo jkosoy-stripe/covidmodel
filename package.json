@@ -8,7 +8,6 @@
     "@mdx-js/loader": "^1.5.7",
     "@next/mdx": "^9.3.1",
     "@prisma/client": "^6.18.0",
-    "@prisma/extension-accelerate": "^2.0.2",
     "@vx/axis": "^0.0.195",
     "@vx/curve": "^0.0.195",
     "@vx/event": "^0.0.195",

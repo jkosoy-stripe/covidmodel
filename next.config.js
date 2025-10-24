@@ -7,7 +7,15 @@ module.exports = withMDX({
   //   reactMode: 'concurrent',
   // },
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  webpack: (config) => {
+  target: 'serverless',
+  webpack: (config, {isServer}) => {
+    // Exclude public/json from being bundled
+    if (isServer) {
+      config.externals = config.externals || [];
+      config.externals.push({
+        'public/json': 'commonjs public/json',
+      });
+    }
     // Uncomment to profile React in production:
     // Object.assign(config.resolve.alias, {
     //   'react-dom$': 'react-dom/profiling',
