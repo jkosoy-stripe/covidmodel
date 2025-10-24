@@ -5,15 +5,6 @@ module.exports = withMDX({
   reactStrictMode: false,
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   swcMinify: false, // Use Terser for compatibility
-  experimental: {
-    outputFileTracingExcludes: {
-      '*': [
-        'node_modules/@prisma/engines/**',
-        'node_modules/prisma/build/**',
-        'node_modules/prisma/engines/**',
-      ],
-    },
-  },
   webpack: (config, {isServer}) => {
     if (isServer) {
       // Externalize Prisma to avoid webpack parsing issues

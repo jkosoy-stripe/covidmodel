@@ -1,7 +1,5 @@
 node_modules/@prisma/engines/**
 node_modules/prisma/build/**
 node_modules/prisma/engines/**
-node_modules/.prisma/client/libquery*
-node_modules/.prisma/client/*.node
 public/json/**
 
