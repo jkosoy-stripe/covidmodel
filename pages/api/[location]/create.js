@@ -1,8 +1,6 @@
 import {PrismaClient} from '@prisma/client';
 
-const prisma = new PrismaClient({
-  forceTransactions: true,
-});
+const prisma = new PrismaClient();
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {

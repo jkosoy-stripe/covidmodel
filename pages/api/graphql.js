@@ -33,4 +33,14 @@ export const config = {
   },
 };
 
-export default apolloServer.createHandler({path: '/api/graphql'});
+const handler = apolloServer.createHandler({path: '/api/graphql'});
+
+export default async function (req, res) {
+  console.log('GraphQL route hit:', req.method, req.url);
+  try {
+    return await handler(req, res);
+  } catch (error) {
+    console.error('GraphQL error:', error);
+    res.status(500).json({error: error.message});
+  }
+}

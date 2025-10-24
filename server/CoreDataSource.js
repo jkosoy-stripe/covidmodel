@@ -8,9 +8,7 @@ import {
 } from './data';
 import {ObjectDataSource} from './util';
 
-const prisma = new PrismaClient({
-  forceTransactions: true,
-});
+const prisma = new PrismaClient();
 
 const identity = (x) => x;
 

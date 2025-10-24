@@ -7,7 +7,8 @@
   "dependencies": {
     "@mdx-js/loader": "^1.5.7",
     "@next/mdx": "^9.3.1",
-    "@prisma/client": "2.0.0-beta.5",
+    "@prisma/client": "^6.18.0",
+    "@prisma/extension-accelerate": "^2.0.2",
     "@vx/axis": "^0.0.195",
     "@vx/curve": "^0.0.195",
     "@vx/event": "^0.0.195",
@@ -48,20 +49,22 @@
     "topojson-client": "^3.1.0"
   },
   "scripts": {
-    "dev": "NODE_OPTIONS=--max_old_space_size=8192 next",
+    "dev": "NODE_OPTIONS='--max_old_space_size=8192 --openssl-legacy-provider' next",
     "build": "next build",
     "start": "next start",
     "testdiff": "node tests/diffSummaries.js",
     "postinstall": "yarn generate",
     "generate": "prisma generate --schema ./prisma/schema.prisma",
-    "migrate:save": "prisma migrate save --schema ./prisma/schema.prisma --experimental",
-    "migrate:up": "prisma migrate up --schema ./prisma/schema.prisma --experimental",
-    "studio": "prisma studio --schema ./prisma/schema.prisma --experimental"
+    "migrate:dev": "prisma migrate dev --schema ./prisma/schema.prisma",
+    "migrate:deploy": "prisma migrate deploy --schema ./prisma/schema.prisma",
+    "migrate:status": "prisma migrate status --schema ./prisma/schema.prisma",
+    "db:push": "prisma db push --schema ./prisma/schema.prisma",
+    "studio": "prisma studio --schema ./prisma/schema.prisma"
   },
   "engines": {
     "node": "*"
   },
   "devDependencies": {
-    "@prisma/cli": "2.0.0-beta.5"
+    "prisma": "^6.18.0"
   }
 }
