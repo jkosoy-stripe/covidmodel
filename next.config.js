@@ -15,6 +15,9 @@ module.exports = withMDX({
       config.externals.push({
         'public/json': 'commonjs public/json',
       });
+      // Externalize Prisma Client to avoid webpack processing its subpath imports
+      config.externals.push('@prisma/client');
+      config.externals.push('.prisma/client');
     }
     // Uncomment to profile React in production:
     // Object.assign(config.resolve.alias, {

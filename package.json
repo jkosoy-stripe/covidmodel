@@ -50,10 +50,11 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--max_old_space_size=8192 --openssl-legacy-provider' next",
     "build": "NODE_OPTIONS='--openssl-legacy-provider' next build",
+    "vercel-build": "prisma generate --data-proxy --schema ./prisma/schema.prisma && NODE_OPTIONS='--openssl-legacy-provider' next build",
     "start": "next start",
     "testdiff": "node tests/diffSummaries.js",
     "postinstall": "yarn generate",
-    "generate": "prisma generate --data-proxy --schema ./prisma/schema.prisma",
+    "generate": "prisma generate --schema ./prisma/schema.prisma",
     "migrate:dev": "prisma migrate dev --schema ./prisma/schema.prisma",
     "migrate:deploy": "prisma migrate deploy --schema ./prisma/schema.prisma",
     "migrate:status": "prisma migrate status --schema ./prisma/schema.prisma",
