@@ -1,0 +1,10 @@
+# Don't upload unnecessary files to Vercel
+node_modules
+.next
+.git
+*.log
+tests/
+model/
+docker/
+scripts/
+
