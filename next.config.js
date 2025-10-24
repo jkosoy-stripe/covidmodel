@@ -2,12 +2,18 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
 module.exports = withMDX({
-  // reactStrictMode: true,
-  // experimental: {
-  //   reactMode: 'concurrent',
-  // },
+  reactStrictMode: false,
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  target: 'serverless',
+  swcMinify: false, // Use Terser for compatibility
+  experimental: {
+    outputFileTracingExcludes: {
+      '*': [
+        'node_modules/@prisma/engines/**',
+        'node_modules/prisma/build/**',
+        'node_modules/prisma/engines/**',
+      ],
+    },
+  },
   webpack: (config, {isServer}) => {
     if (isServer) {
       // Externalize Prisma to avoid webpack parsing issues
