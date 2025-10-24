@@ -6,4 +6,7 @@ node_modules
 model/
 docker/
 scripts/
+public/json/**/
+!public/json/locations.json
+!public/json/states-albers-10m.json
 
